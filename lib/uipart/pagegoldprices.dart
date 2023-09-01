@@ -8,9 +8,11 @@ import 'package:goldpriceprojects/repositorypart/repositoryforgoldprices.dart';
 
 class PageGoldPrices extends StatelessWidget {
   const PageGoldPrices({super.key});
-
+ 
+            
   @override
   Widget build(BuildContext context) {
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -60,44 +62,55 @@ class PageGoldPrices extends StatelessWidget {
               ),
             );
       Widget _showGolodPrices(Gold gold)=>
-      Container(
-        color: Colors.pink.shade100,
-       margin: const EdgeInsets.all(50),
-       padding: const EdgeInsets.all(50),
-       child: Column(
-        children: [
-          Row(
-            children: [
-              const Text("price gram 24k: "),
-              Text(gold.priceGram24k.toString())
-            ],
-            )
-            ,
-             Row(
-            children: [
-             const  Text("price gram 22k: "),
-              Text(gold.priceGram22k.toString())
-            ],
-            ),
-             Row(
-            children: [
-              const Text("price gram 21k: "),
-              Text(gold.priceGram21k.toString())
-            ],
-            ),
-             Row(
-            children: [
-              const Text("price gram 20k: "),
-              Text(gold.priceGram20k.toString())
-            ],
-            )
-            ,
-             Row(
-            children: [
-              const Text("price gram 18k: "),
-              Text(gold.priceGram18k.toString())
-            ],
-            )
-        ],), 
+      Center(
+        child: Container(
+          color: Colors.pink.shade100,
+        
+         child:DataTable(
+          columns: const <DataColumn>[
+            DataColumn(
+              label: Expanded(child: Text("Type of Gold",softWrap: true,
+              style: TextStyle(fontStyle: FontStyle.italic,
+              color:Colors.red,fontSize: 19),),
+              )
+              ),
+              DataColumn(
+              label: Expanded(child:  Text("Price",style:  TextStyle(fontStyle: FontStyle.italic,
+              color:Colors.red,fontSize: 19),
+              )
+              ,))
+          ],
+           rows: <DataRow>[
+            DataRow(
+              cells:<DataCell>[
+                const DataCell(Text(" gram 24k: "),),
+                DataCell(Text(gold.priceGram24k.toString()))
+              ] )
+              ,
+              DataRow(
+              cells:<DataCell>[
+                const DataCell(Expanded(child: Text(" gram 22k: ")),),
+                DataCell(Text(gold.priceGram22k.toString()))
+              ] )
+              ,
+              DataRow(
+              cells:<DataCell>[
+                const DataCell(Text(" gram 21k: "),),
+                DataCell(Text(gold.priceGram21k.toString()))
+              ] ),
+              DataRow(
+              cells:<DataCell>[
+                const DataCell(Text(" gram 20k: "),),
+                DataCell(Text(gold.priceGram20k.toString()))
+              ] ),
+              DataRow(
+              cells:<DataCell>[
+                const DataCell(Text(" gram 18k: "),),
+                DataCell(Text(gold.priceGram18k.toString()))
+              ] )
+      
+           ])),
       ) ;     
 }
+
+
