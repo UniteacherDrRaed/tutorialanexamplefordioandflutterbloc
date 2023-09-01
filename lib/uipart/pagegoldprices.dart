@@ -18,7 +18,7 @@ class PageGoldPrices extends StatelessWidget {
       ], 
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Gold Prices"),
+          title: const Text("The Gold Prices"),
           backgroundColor: Colors.pink,
         ),
         body: BlocProvider(
